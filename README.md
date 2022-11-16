@@ -12,3 +12,9 @@ The purpose of this repository is to provide a API to allow common database oper
 
 Comment:
 Diff - Comes from the word difference. The representation of the difference between two files, it highlits the differences so they are easier to undersand.
+
+	3. We created an app.js. There we set up the Express.js localhost on port 3000.
+	4. Then, we created am index.html file to test the port was connected.
+
+Comment:
+Pressing Ctr-c in the terminal will kill the process on the localhost 3000 port.
