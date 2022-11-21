@@ -16,7 +16,7 @@ Diff - Comes from the word difference. The representation of the difference betw
 `Comment:
 Pressing Ctr-c in the terminal will kill the process on the localhost 3000 port.`
 
-[Modify an item and Delete an item:](https://www.youtube.com/watch?v=cqapa6mI3jE)
+[Modify an item and Delete an item](https://www.youtube.com/watch?v=cqapa6mI3jE):
 - Get 
 - Put (used to update an item) (we'll have information in two places: body [Json] and user [URL])
 
