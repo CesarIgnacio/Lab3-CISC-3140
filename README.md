@@ -12,7 +12,6 @@ The purpose of this repository is to provide a API to allow common database oper
 
 Comment:
 Diff - Comes from the word difference. The representation of the difference between two files, it highlits the differences so they are easier to undersand.
-
 	3. We created an app.js. There we set up the Express.js localhost on port 3000. Using the code shown in this (website)[https://javascript.plainenglish.io/deploying-a-localhost-server-with-node-js-and-express-js-58775f098407] as a template. We changed the values that were suited for our website.
 	4. Then, we created an index.html file to test the port was connected. We also used this (website)[https://expressjs.com/en/starter/hello-world.html] for guidance.
 
