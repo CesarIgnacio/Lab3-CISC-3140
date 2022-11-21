@@ -3,7 +3,7 @@ Lab 3 for Web Application
 ## Purpose
 The purpose of this repository is to provide a API to allow common database operations CRUD (Create, Read, Update, and Delete recods).
 ## Tools used
-- We installed (Node.js)[https://nodejs.org/en/] v18.12.1. 
+- We installed [Node.js](https://nodejs.org/en/) v18.12.1. 
 - We installed the npm v9.1.1. We used the commands npm install `-g npm@9.1.1`.
 - For database handling we used (SQLite)[https://www.sqlite.org/index.html].
 - For installing ExpressJS we followed the instructions in (The official ExpressJS website)[https://expressjs.com/en/starter/installing.html].
