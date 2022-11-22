@@ -1,12 +1,12 @@
 //const app = require('express')();
 const express = require('express');
 const app = express();
-const PORT = 8080;
+const PORT = 3000;
 
 app.use(express.json())// makes sure endpoint body reads as json
 
 //Imports sqlite3 (might have an error either with const/var or with what is in the ()...)
-const sqlite3 = require(sqlite3).verbose();
+const sqlite3 = require("sqlite3").verbose();
 var db = new sqlite3.Database('squirrel.db');
 
 //app.get('/',(req,res) => {
