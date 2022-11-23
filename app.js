@@ -55,6 +55,17 @@ app.get('/squirrel', (req, res) => {
   });
 });
 
+app.get('/color', (req, res) => {
+  var results = [];
+  db.serialize(function() {
+    db.each('SELECT * FROM Color', function(err, row) {
+      results.push({colorid: row.COLORID, primarycolor: row.PRIMARYCOLOR, secondarycolor: row.SECONDARYCOLOR});
+    }, function() {
+      res.send({'squirrel_info': results});
+    });
+  });
+});
+
 app.post('/squirrel', (req, res) => {
   //var newSquirrels = [];
   //var n1 = [newSquirrels.push(108,'north','old', 4, 'false')];
