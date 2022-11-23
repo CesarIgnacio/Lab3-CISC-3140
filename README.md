@@ -26,7 +26,7 @@ fixed the error `Error: Cannot find module 'sqlite3'` [link](https://www.sqlitet
 ## What each file does
 
 Sqlite Folder - includes installation packages
-Squirrel.db - Contains the database for the squirrels using sqlite
+- Squirrel.db - Contains the database for the squirrels using sqlite. Located within sqlite folder.
 
 app.js - provides code to help generate the data
 
@@ -34,19 +34,41 @@ index.html - Structures the website with texts and the hyperlinks that can take 
 
 package.json - contains metadata to help install necessary items as well as to run script. Also gives access to npm command
 
-package-lock.json - ensures that the version of your application is working properly and is updates [link](https://www.geeksforgeeks.org/difference-between-package-json-and-package-lock-json-files/#:~:text=package.-,lock.,and%20save%20it%20in%20package.)
+package-lock.json - ensures that the version of your application is working properly and is updated [link](https://www.geeksforgeeks.org/difference-between-package-json-and-package-lock-json-files/#:~:text=package.-,lock.,and%20save%20it%20in%20package.)
 
 
 ## instruction to the code (list endpoints and how we got it)
 
-EX: app.get needed to make sure everything in database was printed in table, but if we wanted data of a specific squirrel, the info would be provided of the index of the squirrel submitted.
+app.get needed to make sure everything in database was printed in table, but if we wanted data of a specific squirrel, the info would be provided of the index of the squirrel submitted.
 
 
+ENDPOINTS:
+
+- /squirrel (get) - Retrieves all elements inside entire table
+- /color (get)- Retreieves all color elements inside table. 
+- squirrel/(number) (get)- Retrieves information of a specific squirrel. The number you enter is the ID of the squirrel that will be displayed. 
+- color/(number) (get)- Retrieves information of a specific color. The number entered is the ID of the color that will be displayed.
+- /squirrel (post) - Registers and adds a new squirrel with a new ID and with predefined data. 
 
 
 ## Problems/Challenges
 
-We decided to model the endpoints in a way where if we click any of the links, and then decided to open the link via the source code.
+- We decided to model the endpoints in a way where if we click any of the links, and then decided to open the link via the source code.
 
 Issue: After getting the localhost and an ID one time, if you did it again, it crashed due to a file error. The problem still exists, but to get around thism we decided to open via source code, as it presents the info. To get rid of the crash, we killed the system. 
+
+
+- We were able to find a way to allow someone to post a submission, however, when it was posted, the only thing that changed was the ID value. Everything else was the same as the previous. 
+
+Issue: We know how to send the data of the squirrel, but not how to request new data for the database for a new element. The information was not dynamic enough to be considered unique. 
+
+
+- We had multiple situations where we found two websites giving different instructions to accomplish tasks, so it took time to figure out what was the better method.
+
+Example: When trying: [link]() vs [link](https://www.sqlitetutorial.net/sqlite-nodejs/insert/)
+
+Getting information from a file and linking it to the code. For example, in Java you have inputfiles and Scanners. In insomnia, it always said that the database was closed. This was confusing and made us wonder what was going wrong, as well as how these requests would effect the code. We decided not to use db.close() in the end like the website mentioned because it was not helping our program run. 
+
+
+- We used the code presented in class as a template to help us start, however when trying to branch out, we went through a little diffuculty trying to figure out how, using trial and error to guide as a guide.
 
