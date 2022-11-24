@@ -68,6 +68,38 @@ app.post('/squirrel', (req, res) => {
   //db.run(insert, n2);
   res.send('A new squirrel was added to the list');
 });
+//updates a specific squirrel
+app.put('/squirrel/:id',(req,res) =>{
+  var r_id = req.query.id;
+  var f1 = req.query.f1;
+  var f2 = req.query.f2;
+  const sql = "SELECT * FROM Squirrel WHERE ROWID="+r_id;
+  var results = [];
+  // var sqlupdate =[];
+  //const queryObject = `http://localhost:3000`.parse(req.query,true).query
+  if(f1 && f2){
+     "SELECT * FROM Squirrel" += `WHERE ${f1} LIKE '%${f2}%`;
+  }
+  db.all("SELECT * FROM Squirrel",[],function(error,row){
+    results.push({id: row.ID, location: row.LOCATION, age: row.AGE, colorid: row.COLORID, eating: row.EATING});
+  }),function(){
+     res.send({'squirrel has been updated': results});
+  }
+  // if(r_id !== '' && loc !== ''){
+  //   db.serialize(function(){
+  //     db.each(squirrelT + r_id, function(err, row) {
+  //       results.push({id: row.ID, location: row.LOCATION, age: row.AGE, colorid: row.COLORID, eating: row.EATING});
+  //       db.run("UPDATE Squirrel SET LOCATION=? WHERE ROWID=?",[r_id,loc]);
+  //       sqlupdate.push({id: row.ID, location: loc, age: row.AGE, colorid: row.COLORID, eating: row.EATING});
+  //     }, function() {
+  //       res.send({'squirrel_info': results});
+  //     });
+  //   })
+  //   //`SELECT * FROM Squirrel` += `WHERE`
+  // }
+  //db.run(`UPDATE Squirrel SET LOCATION = ? WHERE ROWID =?`,[loc, r_id]);
+
+})
 
 app.listen(
     PORT, 
