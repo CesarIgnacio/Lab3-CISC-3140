@@ -1,4 +1,6 @@
 //Import Express
+const { json } = require('body-parser');
+const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
 const PORT = 3000;
@@ -11,6 +13,9 @@ var db = new sqlite3.Database('sqlite/squirrel.db');
 const squirrelT = 'SELECT * FROM Squirrel WHERE ID=';
 const colorT = 'SELECT * FROM Color WHERE COLORID=';
 
+// Middlewear functions 
+app.use(bodyParser.json()); // Add suport for reading budy variables
+app.use(bodyParser.urlencoded({extended:true}));
 
 app.get('/squirrel/:id', (req, res) => {
   var results = [];
@@ -57,17 +62,14 @@ app.get('/color', (req, res) => {
 });
 
 app.post('/squirrel', (req, res) => {
-  //var newSquirrels = [];
-  //var n1 = [newSquirrels.push(108,'north','old', 4, 'false')];
-  //var n2 = [newSquirrels.push(109,'north','old', 4, 'false')]
-  //newSquirrels.push(114,'north','old', 4, 'false');
-  //newSquirrels.push(115,'north','old', 4, 'false');
 
-  var insert = 'INSERT INTO Squirrel (LOCATION, AGE, COLORID, EATING) VALUES (?,?,?,?)';
-  db.run(insert, ['north','old', 4, 'false']);
-  //db.run(insert, n2);
+  var {LOCATION, AGE, COLORID, EATING} = req.body; // Distructuring into diffe
+  var insert = `INSERT INTO Squirrel (LOCATION, AGE, COLORID, EATING) VALUES (?,?,?,?)`; // (?,?,?,?) SQLite format
+  db.run(insert, [LOCATION, AGE, COLORID, EATING]);
+
   res.send('A new squirrel was added to the list');
 });
+
 //updates a specific squirrel
 app.put('/squirrel/:id',(req,res) =>{
   var r_id = req.query.id;

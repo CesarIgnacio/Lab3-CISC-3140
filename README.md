@@ -65,3 +65,9 @@ Example: Examples from the class vs [this](https://www.sqlitetutorial.net/sqlite
 Getting information from a file and linking it to the code. For example, in Java you have inputfiles and Scanners. In insomnia, it always said that the database was closed. This was confusing and made us wonder what was going wrong, as well as how these requests would effect the code. We decided not to use db.close() in the end like the website mentioned because it was not helping our program run.
 
 - We used the code presented in class as a template to help us start, however when trying to branch out, we went through a little diffuculty trying to figure out how, using trial and error to guide as a guide.
+
+Install nodemon: Run a webserver in node, if it cratches nodemon is going to restarted as soon as you save your file again
+npm install -g nodemon
+
+Install the budyparser: Allows suport to read the budy of the request in JSON format {"elm1":"val1","elm2":"val2"}
+npm i body-parser --save
