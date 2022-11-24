@@ -78,7 +78,7 @@ app.put('/squirrel/:id',(req,res) =>{
   // var sqlupdate =[];
   //const queryObject = `http://localhost:3000`.parse(req.query,true).query
   if(f1 && f2){
-     "SELECT * FROM Squirrel" += `WHERE ${f1} LIKE '%${f2}%`;
+     sql += `WHERE ${f1} LIKE '%${f2}%`;
   }
   db.all("SELECT * FROM Squirrel",[],function(error,row){
     results.push({id: row.ID, location: row.LOCATION, age: row.AGE, colorid: row.COLORID, eating: row.EATING});
