@@ -66,3 +66,9 @@ Getting information from a file and linking it to the code. For example, in Java
 
 
 - We used the code presented in class as a template to help us start, however when trying to branch out, we went through a little diffuculty trying to figure out how, using trial and error to guide as a guide.
+
+Install nodemon: Run a webserver in node, if it cratches nodemon is going to restarted as soon as you save your file again
+npm install -g nodemon
+
+Install the budyparser: Allows suport to read the budy of the request in JSON format {"elm1":"val1","elm2":"val2"}
+npm i body-parser --save
