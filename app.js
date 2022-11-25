@@ -72,17 +72,6 @@ app.delete('/squirrel/:id', (req, res) => {
 })
 
 
-app.delete('/squirrel/:id', (req, res) => {
-  db.run('DELETE FROM squirrel WHERE id = ?', req.params.id,  (e) => {
-      if(e) {
-          console.log(e)
-          return res.status(500).send()
-      }
-    res.json({'deleted_squirrel_id': req.params.id})
-  })
-})
-
-
 app.post('/squirrel', (req, res) => {
 
   var {LOCATION, AGE, COLORID, EATING} = req.body; // Distructuring into diffe
