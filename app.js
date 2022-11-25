@@ -56,6 +56,17 @@ app.get('/color', (req, res) => {
   });
 });
 
+app.delete('/squirrel/:id', (req, res) => {
+  db.run('DELETE FROM squirrel WHERE id = ?', req.params.id,  (e) => {
+      if(e) {
+          console.log(e)
+          return res.status(500).send()
+      }
+    res.json({'deleted_squirrel_id': req.params.id})
+  })
+})
+
+
 app.post('/squirrel', (req, res) => {
   //var newSquirrels = [];
   //var n1 = [newSquirrels.push(108,'north','old', 4, 'false')];
