@@ -61,6 +61,7 @@ app.get('/color', (req, res) => {
   });
 });
 
+// Deletes a squirrel from the table
 app.delete('/squirrel/:id', (req, res) => {
   db.run('DELETE FROM squirrel WHERE id = ?', req.params.id,  (e) => {
       if(e) {
@@ -71,7 +72,18 @@ app.delete('/squirrel/:id', (req, res) => {
   })
 })
 
+// Deletes a color from the table
+app.delete('/color/:id', (req, res) => {
+  db.run('DELETE FROM color WHERE COLORID = ?', req.params.id,  (e) => {
+      if(e) {
+          console.log(e)
+          return res.status(500).send()
+      }
+    res.json({'deleted_color_id': req.params.id})
+  })
+})
 
+// Adds new squirrel to the table
 app.post('/squirrel', (req, res) => {
 
   var {LOCATION, AGE, COLORID, EATING} = req.body; // Distructuring into diffe
@@ -79,6 +91,20 @@ app.post('/squirrel', (req, res) => {
   db.run(insert, [LOCATION, AGE, COLORID, EATING]);
 
   res.send('A new squirrel was added to the list');
+});
+
+// Adds new color to its table
+app.post('/color', (req, res) => {
+
+  var {COLORID, PRIMARYCOLOR, SECONDARYCOLOR} = req.body; // Distructuring into diffe
+  var insert = `INSERT INTO Color (COLORID, PRIMARYCOLOR, SECONDARYCOLOR) VALUES (?,?,?)`; // (?,?,?) SQLite format
+  db.run(insert, [COLORID, PRIMARYCOLOR, SECONDARYCOLOR]);
+
+  res.send('A new color was added to the list');
+});
+
+app.put('/squirrel/:id', (req, res) => {
+  var id = req.query.id;
 });
 
 //updates a specific squirrel
